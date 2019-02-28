@@ -1,2 +1,2 @@
 # vue-admin
-基于vue-cli3搭建的项目模板
+基于element-ui搭建的后台管理模板
