@@ -7,7 +7,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">New Visits</div>
-          <count-to :duration="2600" :end-val="204800" :start-val="0" class="card-panel-num"/>
+          <count-to :duration="2600" :end-val="20480" :start-val="0" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
@@ -18,7 +18,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">Messages</div>
-          <count-to :duration="3000" :end-val="305600" :start-val="0" class="card-panel-num"/>
+          <count-to :duration="3000" :end-val="30560" :start-val="0" class="card-panel-num"/>
         </div>
       </div>
     </el-col>
