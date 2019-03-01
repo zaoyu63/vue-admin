@@ -1,8 +1,10 @@
 <template>
-  <el-color-picker
-    class="theme-picker"
-    popper-class="theme-picker-dropdown"
-    v-model="theme"/>
+  <el-tooltip class="item" content="换肤" effect="dark" placement="bottom">
+    <el-color-picker
+      class="theme-picker"
+      popper-class="theme-picker-dropdown"
+      v-model="theme"/>
+  </el-tooltip>
 </template>
 
 <script>
@@ -14,20 +16,21 @@
     data() {
       return {
         chalk: '', // content of theme-chalk css
+        docs: '', // content of docs css
         theme: ORIGINAL_THEME
       };
     },
+
     watch: {
-      theme(val) {
-        const oldVal = this.theme;
+      theme(val, oldVal) {
         if (typeof val !== 'string') return;
         const themeCluster = this.getThemeCluster(val.replace('#', ''));
         const originalCluster = this.getThemeCluster(oldVal.replace('#', ''));
-        console.log(themeCluster, originalCluster);
         const getHandler = (variable, id) => {
           return () => {
+            debugger;
             const originalCluster = this.getThemeCluster(ORIGINAL_THEME.replace('#', ''));
-            const newStyle = this.updateStyle(this[variable], originalCluster, themeCluster);
+            let newStyle = this.updateStyle(this[variable], originalCluster, themeCluster);
 
             let styleTag = document.getElementById(id);
             if (!styleTag) {
@@ -40,12 +43,22 @@
         };
 
         const chalkHandler = getHandler('chalk', 'chalk-style');
+        const docsHandler = getHandler('docs', 'docs-style');
 
         if (!this.chalk) {
           const url = `https://unpkg.com/element-ui@${version}/lib/theme-chalk/index.css`;
           this.getCSSString(url, chalkHandler, 'chalk');
         } else {
           chalkHandler();
+        }
+
+        if (!this.docs) {
+          const links = [].filter.call(document.querySelectorAll('link'), link => {
+            return /docs\..+\.css/.test(link.href || '');
+          });
+          links[0] && this.getCSSString(links[0].href, docsHandler, 'docs');
+        } else {
+          docsHandler();
         }
 
         const styles = [].slice.call(document.querySelectorAll('style'))
@@ -57,10 +70,6 @@
           const {innerText} = style;
           if (typeof innerText !== 'string') return;
           style.innerText = this.updateStyle(innerText, originalCluster, themeCluster);
-        });
-        this.$message({
-          message: '换肤成功',
-          type: 'success'
         });
       }
     },

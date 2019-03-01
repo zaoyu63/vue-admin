@@ -1,9 +1,9 @@
 <template>
   <div class="navBar-container">
     <el-scrollbar>
-      <el-menu :collapse="closeNavBar" :default-active="$route.path" :show-timeout="100" active-text-color="#409EFF"
+      <el-menu :collapse="closeNavBar" :default-active="$route.path" :show-timeout="100"
                background-color="#545c64"
-               mode="vertical" router text-color="#bfcbd9">
+               mode="vertical" router>
         <template v-for="item in menu">
           <el-submenu :index="item.path" :key="item.path" v-if="item.children && item.children.length">
             <template slot="title">
