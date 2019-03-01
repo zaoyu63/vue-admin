@@ -48,6 +48,20 @@ export const routes = [
         ]
       },
       {
+        path: '/chart',
+        name: '图表',
+        component: () => import('@/components/route-view'),
+        meta: {icon: 'chart'},
+        children: [
+          {
+            path: '/chart/ECharts',
+            name: 'ECharts',
+            component: () => import('@/views/chart/ECharts'),
+            meta: {}
+          }
+        ]
+      },
+      {
         path: '/map',
         name: '地图',
         component: () => import('@/components/route-view'),
