@@ -58,22 +58,22 @@ html, body {
       overflow: hidden;
     }
   }
+}
 
-  .el-menu {
-    border: 0;
 
-    .el-menu-item {
-      color: $nav-bar-color;
+.el-menu {
+  border: 0;
 
-      &.is-active {
-        color: $--color-primary;
-      }
+  .el-menu-item {
+    color: $nav-bar-color;
+
+    &.is-active {
+      color: $--color-primary;
     }
-  ;
+  }
 
-    .el-submenu__title {
-      color: $nav-bar-color;
-    }
+  .el-submenu__title {
+    color: $nav-bar-color;
   }
 }
 
