@@ -12,7 +12,7 @@ export const routes = [
       {
         path: '/dashboard',
         name: '首页',
-        component: () => import('@/views/test.vue'),
+        component: () => import('@/views/dashboard'),
         meta: {icon: 'dashboard'}
       },
       {
