@@ -48,6 +48,26 @@ export const routes = [
         ]
       },
       {
+        path: '/map',
+        name: '地图',
+        component: () => import('@/components/route-view'),
+        meta: {icon: 'map'},
+        children: [
+          {
+            path: '/map/baidu',
+            name: '百度',
+            component: () => import('@/views/map/baidu'),
+            meta: {}
+          },
+          {
+            path: '/map/amap',
+            name: '高德',
+            component: () => import('@/views/map/amap'),
+            meta: {}
+          }
+        ]
+      },
+      {
         path: '/permission',
         name: '权限测试',
         component: () => import('@/components/route-view'),

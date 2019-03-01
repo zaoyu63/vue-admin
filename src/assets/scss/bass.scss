@@ -21,11 +21,24 @@ html, body {
 
 .main-container {
   margin-left: $nav-left-width;
-
+  height: 100%;
   .content {
     padding: 20px;
+    height: calc(100% - 60px);
+    box-sizing: border-box;
+  }
+
+  .el-vue-amap-container {
+    .amap-container {
+      height: 100%;
+    }
+  }
+
+  .map {
+    height: 100%;
   }
 }
+
 
 
 .navBar-container {
