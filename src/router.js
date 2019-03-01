@@ -18,13 +18,39 @@ export const routes = [
       {
         path: '/component',
         name: '组件',
-        component: () => import('@/views/test.vue'),
-        meta: {icon: 'component'}
+        component: () => import('@/components/route-view'),
+        meta: {icon: 'component'},
+        children: [
+          {
+            path: '/component/json',
+            name: 'JSON编辑器',
+            component: () => import('@/views/component/jsonEditor'),
+            meta: {}
+          },
+          {
+            path: '/component/countTo',
+            name: 'countTo',
+            component: () => import('@/views/component/countTo'),
+            meta: {}
+          },
+          {
+            path: '/component/dialog/drag',
+            name: 'Dialog拖拽',
+            component: () => import('@/views/component/dragDialog'),
+            meta: {}
+          },
+          {
+            path: '/component//list/drag',
+            name: '列表拖拽',
+            component: () => import('@/views/component/dndList'),
+            meta: {}
+          }
+        ]
       },
       {
         path: '/permission',
         name: '权限测试',
-        component: () => import('@/views/test.vue'),
+        component: () => import('@/components/route-view'),
         meta: {icon: 'permission'},
         children: [
           {
@@ -44,13 +70,13 @@ export const routes = [
       {
         path: '/menu',
         name: '菜单嵌套',
-        component: () => import('@/views/test.vue'),
+        component: () => import('@/components/route-view'),
         meta: {icon: 'menu'},
         children: [
           {
             path: '/permission/A',
             name: '菜单A',
-            component: () => import('@/views/test.vue'),
+            component: () => import('@/components/route-view'),
             meta: {},
             children: [
               {
@@ -70,7 +96,7 @@ export const routes = [
           {
             path: '/permission/B',
             name: '菜单B',
-            component: () => import('@/views/test.vue'),
+            component: () => import('@/components/route-view'),
             meta: {},
             children: [
               {
