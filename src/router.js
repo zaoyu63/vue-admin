@@ -58,6 +58,12 @@ export const routes = [
             name: 'ECharts',
             component: () => import('@/views/chart/ECharts'),
             meta: {}
+          },
+          {
+            path: '/chart/F2',
+            name: 'F2',
+            component: () => import('@/views/chart/F2'),
+            meta: {}
           }
         ]
       },
